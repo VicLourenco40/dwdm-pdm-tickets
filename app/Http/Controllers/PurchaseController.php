@@ -42,7 +42,7 @@ class PurchaseController extends Controller
             ], 409);
         }
 
-        $purchase->checked_in_at = now()->timestamp;
+        $purchase->checked_in_at = now();
         $purchase->save();
 
         return response()->json([
