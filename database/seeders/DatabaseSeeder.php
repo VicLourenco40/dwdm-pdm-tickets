@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Database\Seeder;
 use Database\Seeders\EventSeeder;
 use Database\Seeders\TicketSeeder;
+use Database\Seeders\CustomerSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,7 +15,8 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             EventSeeder::class,
-            TicketSeeder::class
+            TicketSeeder::class,
+            CustomerSeeder::class
         ]);
     }
 }
