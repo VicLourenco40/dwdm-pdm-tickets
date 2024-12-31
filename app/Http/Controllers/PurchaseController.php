@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\PurchaseRequest;
 use App\Models\Purchase;
 
 class PurchaseController extends Controller
@@ -15,7 +16,7 @@ class PurchaseController extends Controller
 
         if (!$purchase) {
             return response()->json([
-                'error' => 'Ticket not found'
+                'error' => 'Invalid ticket.'
             ], 404);
         }
 
@@ -31,13 +32,13 @@ class PurchaseController extends Controller
 
         if (!$purchase) {
             return response()->json([
-                'error' => 'Ticket not found'
+                'error' => 'Invalid ticket.'
             ], 404);
         }
 
         if ($purchase->checked_in_at) {
             return response()->json([
-                'error' => 'Ticket already checked in'
+                'error' => 'Ticket already checked in.'
             ], 409);
         }
 
@@ -45,7 +46,7 @@ class PurchaseController extends Controller
         $purchase->save();
 
         return response()->json([
-            'message' => 'Ticket successfully checked in'
+            'message' => 'Ticket successfully checked in.'
         ]);
     }
 }
