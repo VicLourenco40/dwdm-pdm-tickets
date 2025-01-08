@@ -46,7 +46,8 @@ class PurchaseController extends Controller
         $purchase->save();
 
         return response()->json([
-            'message' => 'Ticket successfully checked in.'
+            'message' => 'Ticket successfully checked in.',
+            'checked_in_at' => $purchase->checked_in_at
         ]);
     }
 }
